@@ -12,6 +12,7 @@ def send_msg():
     numbers = request.form.get("numbers")
     message = request.form.get("message")
     client = request.form.get("client")
+    sim_num = request.form.get("sim_num")
 
     # Do something with the form data
     # For this example, we are printing the received data
