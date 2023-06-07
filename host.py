@@ -16,7 +16,7 @@ def dash():
 
         # Send the form data to google.com
         response = requests.post(
-            f"{client}:5001",
+            f"http://{client}:5001/send_msg",
             data={
                 "numbers": numbers,
                 "message": message,
