@@ -24,7 +24,7 @@ def send_msg():
 
 def ping_google():
     try:
-        response = requests.get("http://192.168.1.10:5000/ping")
+        response = requests.get("http://192.168.1.102:5000/ping")
         print("Ping success ....")
     except:
         print("Ping Failed")
