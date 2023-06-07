@@ -30,6 +30,7 @@ def send_msg():
                 message,
             ]
         )
+        time.sleep(1.3)
 
     return "Message received successfully!"
 
