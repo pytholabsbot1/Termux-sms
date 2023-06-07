@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dashboard</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        width: 400px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .container label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .container select,
+      .container textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        resize: vertical;
+      }
+
+      .container button {
+        width: 100%;
+        padding: 10px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .container button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form method="POST" action="/dash">
+        <label for="numbers">Numbers:</label>
+        <textarea
+          id="numbers"
+          name="numbers"
+          rows="4"
+          placeholder="Enter numbers"
+        ></textarea>
+
+        <label for="message">Message:</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="4"
+          placeholder="Enter message"
+        ></textarea>
+
+        <label for="client">Client:</label>
+        <select id="client" name="client">
+          {% for client in clients %}
+          <option value="{{ client }}">{{ client }}</option>
+          {% endfor %}
+        </select>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
