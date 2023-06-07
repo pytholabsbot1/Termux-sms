@@ -12,11 +12,17 @@ def dash():
         numbers = request.form.get("numbers")
         message = request.form.get("message")
         client = request.form.get("client")
+        sim_num = request.form.get("sim_num")
 
         # Send the form data to google.com
         response = requests.post(
             f"{client}:5001",
-            data={"numbers": numbers, "message": message, "client": client},
+            data={
+                "numbers": numbers,
+                "message": message,
+                "client": client,
+                "sim_num": sim_num,
+            },
         )
         if response.status_code == 200:
             return "Form data posted successfully!"

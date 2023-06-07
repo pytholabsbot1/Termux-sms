@@ -12,6 +12,7 @@ def send_msg():
     numbers = request.form.get("numbers")
     message = request.form.get("message")
     client = request.form.get("client")
+    sim_num = request.form.get("sim_num")
 
     # Do something with the form data
     # For this example, we are printing the received data
@@ -24,7 +25,7 @@ def send_msg():
 
 def ping_google():
     try:
-        response = requests.get("http://localhost:5000/ping")
+        response = requests.get("http://192.168.1.102:5000/ping")
         print("Ping success ....")
     except:
         print("Ping Failed")
