@@ -1,7 +1,7 @@
 from flask import Flask, request
 import requests
 import schedule
-import time
+import time, subprocess
 import threading
 
 app = Flask(__name__)
@@ -17,8 +17,19 @@ def send_msg():
     # Do something with the form data
     # For this example, we are printing the received data
     print(f"Received message for client {client}:")
-    print(f"Numbers: {numbers}")
-    print(f"Message: {message}")
+
+    for num in numbers.split("\n"):
+        print(f"sending : {num}")
+        subprocess.run(
+            [
+                "termux-sms-send",
+                "-s",
+                sim_num,
+                "-n",
+                num,
+                message,
+            ]
+        )
 
     return "Message received successfully!"
 
